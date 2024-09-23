@@ -3,7 +3,7 @@
 // 필요한 라이브러리 로드
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../server/app.js'); // 실제 서버 파일 경로를 설정해 주세요
+const server = require('../app.js'); // 실제 서버 파일 경로를 설정해 주세요
 const should = chai.should();
 
 chai.use(chaiHttp);

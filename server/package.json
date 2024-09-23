@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "mocha ../tests/*.js"
+    "test": "mocha ./tests/test_server.js"
   },
   "keywords": [],
   "author": "",
