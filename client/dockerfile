@@ -1,0 +1,10 @@
+FROM node:16
+
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+# 추가 라이브러리 설치
+RUN npm install recharts fullcalendar @fullcalendar/react framer-motion
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]

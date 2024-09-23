@@ -1,0 +1,205 @@
+.news-talk {
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  /* 화면 높이의 80%로 설정 */
+  max-height: 80vh;
+  /* 최대 높이를 80%로 설정 */
+  width: 800px;
+  max-width: 800px;
+  margin: 0 auto;
+  /* 중앙 정렬을 위한 자동 마진 */
+  border-radius: 15px;
+  /*background-color: rgba(255, 255, 255, 0.5); /* 하얀색 배경, 50% 투명도 */
+  position: auto;
+  /* 화면에 고정 위치 */
+  top: 40%;
+  /* 화면의 수직 중앙에 위치하도록 설정 */
+  left: 50%;
+  /* 화면의 수평 중앙에 위치하도록 설정 */
+  /* transform: translate(-50%, -50%); 수직과 수평 중앙 정렬을 위한 변환 */
+  z-index: 10;
+  /* 채팅창이 다른 요소 위에 오도록 설정 */
+  overflow-y: auto;
+  /* 세로 스크롤 추가 */
+  overflow-x: hidden;
+  /* 가로 스크롤 제거 */
+}
+
+/* 뉴스 아이콘 */
+.news-talk p {
+  display: flex;
+  flex-direction: column;
+  /* 수직 방향으로 배치 */
+  align-items: left;
+  /* 왼쪽 정렬 */
+  margin-left: 1%;
+  margin-bottom: 10px;
+  /* background-color: rgb(17, 0, 255); */
+}
+
+.news-talk img {
+  width: 50px;
+  /* 아이콘의 너비 */
+  height: 30px;
+  /* 아이콘의 높이 */
+  margin-bottom: 5px;
+  /* 이미지와 텍스트 간의 간격 조정 */
+  /* background-color: yellow; */
+}
+
+.news-talk span {
+  font-size: 20px;
+  background-color: none;
+  margin: 0;
+  /* 기본 마진 제거 */
+  align-items: left;
+  text-align: left;
+  margin-left: 0%;
+  /* background-color: aqua; */
+}
+
+/* 메시지 영역 */
+.news-talk-messages {
+  display: flex;
+  flex-direction: column-reverse;
+  /* 메시지가 아래에서 위로 쌓이도록 설정 */
+  /* flex-direction: column; */
+  flex: 1;
+  overflow-y: auto;
+  /* 세로 스크롤 추가 */
+  overflow-x: hidden;
+  /* 가로 스크롤 제거 */
+  padding: 10px;
+  /* 여백 추가 */
+  border-radius: 15px;
+  /* text-align: center; */
+  /*border-bottom: 1px solid #00ffaa;*/
+  background-color: rgba(54, 53, 54, 0.5);
+  /*background-color: rgba(4, 255, 0, 0.5); /* 하얀색 배경, 50% 투명도 */
+  color: #000;
+  /* 글자 색상: 검정색 */
+  word-wrap: break-word;
+  /* 줄바꿈 처리 */
+  overflow-wrap: break-word;
+  /* 줄바꿈 처리 */
+}
+
+/* 메시지 컨테이너 */
+.news-talk-message-container {
+  display: flex;
+  /* 플렉스 박스 사용 */
+  align-items: flex-start;
+  /* 메시지와 아이콘을 수직 정렬 */
+  /* background-color: blueviolet; */
+  justify-content: flex-end;
+  /* 오른쪽 정렬 */
+  margin-bottom: 10px;
+  /* 메시지 컨테이너 사이의 간격 */
+}
+
+/* 각 메시지 */
+.news-talk-message {
+  display: flex;
+  flex-direction: column-reverse;
+  /* 메시지와 타임스탬프를 세로로 배치 */
+  width: 300px;
+  max-width: calc(100% - 60px);
+  /* .message의 최대 너비를 .messages 컨테이너의 너비에서 아이콘 너비를 제외한 값으로 설정 */
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  /* 메시지 풍선의 배경색 */
+  margin-left: 10px;
+  /* 메시지와 아이콘 사이의 간격 */
+  text-align: left;
+  /* 메시지 텍스트를 왼쪽 정렬 */
+  word-wrap: break-word;
+  /* 줄바꿈 처리 */
+  overflow-wrap: break-word;
+  /* 줄바꿈 처리 */
+}
+
+/* 타임스탬프 */
+.news-talk-timestamp {
+  font-size: 12px;
+  /* 타임스탬프 폰트 크기 */
+  color: #888;
+  /* 타임스탬프 색상 */
+  margin-top: 5px;
+  /* 메시지와 타임스탬프 간의 간격 */
+}
+
+/* 사용자 아이콘 */
+.news-talk-user-icon {
+  width: 60px;
+  /* 아이콘의 너비 */
+  max-width: 60px;
+  height: 110px;
+  /* 아이콘의 높이 */
+  /* border-radius: 50%; 아이콘을 둥글게 만듦 */
+  /* padding: 5px; */
+  margin: 5px;
+  margin-top: 2.5%;
+  /* background-color: rgb(255, 0, 0); */
+}
+
+/* 입력 영역 */
+.news-talk-input-area {
+  display: flex;
+  padding: 20px;
+  height: 10%;
+  border-top: 0px solid #ddd;
+  background-color: #ddd;
+  /* background-color: rgba(236, 11, 11, 0.8); /* 투명한 빨간색 배경 */
+  border-radius: 10px;
+
+}
+
+/* 입력 필드 */
+.news-talk-input-area input {
+  flex: 1;
+  /* padding: 10px; */
+  /*border: 1px solid #ddd;*/
+  border-radius: 4px;
+  font-size: 16px;
+  width: 70px;
+  max-width: 690px;
+  /* background-color: red; */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0); 그림자 추가 */
+}
+
+/* 버튼 */
+.news-talk-send-button {
+  margin-left: 3px;
+  padding: 0;
+  /* 이미지만 포함된 버튼에 맞춤 */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  /* 플렉스박스를 사용하여 자식 요소 정렬 */
+  align-items: center;
+  /* 버튼 내에서 아이템을 세로로 중앙 정렬 */
+  justify-content: flex-end;
+  /* 버튼 내에서 아이템을 오른쪽으로 정렬 */
+  width: 50px;
+  /* 버튼의 너비 (이미지 크기에 맞춰 조정) */
+  height: 50px;
+  /* 버튼의 높이 (이미지 크기에 맞춰 조정) */
+  background-color: #DDD;
+  /* background-color: white; */
+}
+
+/* 버튼 안의 이미지 */
+.news-talk-send-button .news-talk-send-icon {
+  padding-top: 100%;
+  /* padding-left: -250%; */
+
+  width: 65px;
+  /* 버튼 이미지의 너비 */
+  height: 65px;
+  /* 버튼 이미지의 높이 (버튼 높이와 동일하게 설정) */
+  margin: 0 -25px 25px;
+  /* 마진 제거 */
+  background: none;
+}

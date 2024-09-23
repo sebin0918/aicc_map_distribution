@@ -1,0 +1,582 @@
+/* header 스타일 설정 */
+.header {
+  background-color: transparent;
+  /* 기본 배경색 투명 */
+  transition: background-color 0.3s;
+  /* 배경색 변경 시 부드럽게 전환 */
+  padding: 10px 0;
+  /* 위 간격 추가 */
+  display: flex;
+  justify-content: center;
+  /* 중앙 정렬 */
+  align-items: center;
+  height: 70px;
+  /* 기본 높이 */
+  border-bottom: 2px solid white;
+  /* 하단 흰색 라인 추가 */
+  position: relative;
+  /* 위치를 상대적으로 설정 */
+}
+
+.header:hover {
+  background-color: #6100ff;
+  /* 마우스가 갔을 때 배경색 */
+  height: 70px;
+  /* 드롭다운 메뉴가 열릴 때 전체 헤더 높이 유지 */
+}
+
+.header div.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* 전체 너비 사용 */
+  max-width: 1280px;
+  /* 최대 너비 설정 */
+  padding: 0 20px;
+  /* 좌우 패딩 */
+  justify-content: space-between;
+  /* 로고와 메뉴, 버튼 사이 간격 조정 */
+}
+
+.header div.header-content img.logo {
+  height: 75px;
+  /* 로고 크기 조정 */
+  margin-right: 50px;
+  /* 로고와 메뉴 간격 */
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  /* 여유 공간 사용 */
+  justify-content: space-between;
+  /* 항목 간 간격 조정 */
+}
+
+.header nav ul li {
+  margin: 0 50px;
+  /* 카테고리 간격 */
+  cursor: pointer;
+  position: relative;
+  font-size: 22px;
+  /* 폰트 크기 */
+  flex-shrink: 0;
+  /* 아이템 크기 고정 */
+}
+
+.header nav ul li ul {
+  visibility: hidden;
+  position: absolute;
+  top: 200%;
+  /* 부모 항목의 아래에 위치 */
+  left: 50%;
+  /* 부모 항목의 중앙에 정렬 */
+  transform: translateX(-50%);
+  /* 중앙 정렬 */
+  background-color: #333333;
+  color: white;
+  padding: 5px 10px;
+  width: 180px;
+  list-style: none;
+  text-align: center;
+  /* 중앙 정렬 */
+  z-index: 999;
+  /* 메뉴가 다른 요소 위에 표시되도록 함 */
+  flex-shrink: 0;
+  /* 크기 고정 */
+  border-radius: 8px;
+  /* 모서리를 둥글게 */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  /* 그림자 효과 추가 */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  /* 부드러운 등장 효과 */
+  opacity: 0;
+  flex-direction: column;
+  /* 처음에는 투명하게 설정 */
+
+}
+
+.header nav ul li ul.dropdown {
+  border-bottom: white 2px solid;
+  /* 드롭다운 메뉴 아래에 흰색 선 추가 */
+
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.header nav ul li:hover>ul,
+.header nav ul li ul:hover {
+  visibility: visible;
+  transform: translateX(-50%) translateY(5px);
+  opacity: 1;
+  /* 호버 시 불투명하게 전환 */
+}
+
+.header nav ul li:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  /* 부모 항목 바로 아래 */
+  left: 0;
+  width: 100%;
+  height: 95px;
+  /* 부모 항목과 드롭다운 메뉴 사이 간격 */
+  z-index: 3;
+  /* 드롭다운 메뉴보다 아래에 위치 */
+  background-color: transparent;
+  /* 투명한 감지 영역 */
+}
+
+.header nav ul li ul li {
+  margin: 5px 0;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #333333;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s, transform 0.3s ease;
+  /* 드롭다운 메뉴 폰트 조절 */
+}
+
+.header nav ul li:hover {
+  background-color: transparent;
+}
+
+.header nav ul li ul li:hover {
+  background-color: #9C00FF;
+  /* 드롭다운 메뉴 항목에 호버 시 배경 색상 */
+  border-color: #666666;
+  transform: scale(1.05);
+}
+
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  /* 크기 고정 */
+}
+
+.auth-buttons img {
+  width: 32px;
+  /* 아이콘의 크기를 조정 */
+  height: 32px;
+  /* 아이콘의 크기를 조정 */
+  margin-left: 10px;
+  /* 아이콘 사이 간격 */
+  cursor: pointer;
+}
+
+.auth-buttons .logout-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.auth-buttons .login-button,
+.auth-buttons .signup-button {
+  background: none;
+  /* 배경색 제거 */
+  border: 1px solid white;
+  /* 흰색 테두리 */
+  color: white;
+  /* 글자색 흰색 */
+  padding: 5px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  /* 글자 크기 조정 */
+  border-radius: 4px;
+  /* 모서리를 둥글게 */
+  transition: background-color 0.3s;
+  /* 배경색 전환 효과 */
+}
+
+.auth-buttons .login-button:hover,
+.auth-buttons .signup-button:hover {
+  background-color: white;
+  /* 호버 시 배경색 변경 */
+  color: #6100ff;
+  /* 호버 시 글자색 변경 */
+}
+
+.auth-buttons .icon-button img {
+  display: block;
+}
+
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header nav ul li {
+    margin: 10px 0;
+  }
+
+  .auth-buttons {
+    margin-top: 10px;
+    justify-content: center;
+    /* 버튼을 중앙 정렬 */
+  }
+
+  .auth-buttons img {
+    width: 24px;
+    /* 모바일에서 아이콘 크기 줄이기 */
+    height: 24px;
+  }
+
+  .auth-buttons .login-button,
+  .auth-buttons .signup-button {
+    font-size: 12px;
+    /* 버튼 글자 크기 줄이기 */
+    padding: 5px 10px;
+  }
+}
+
+/* Navigation bar 스타일 설정 */
+.navigation-bar {
+  position: fixed;
+  top: 0;
+  left: -270px;
+  height: 100%;
+  width: 270px;
+  background-color: #6100ff;
+  color: white;
+  transition: left 0.3s;
+  z-index: 1000;
+  font-size: 20px;
+}
+
+.navigation-bar.open {
+  left: 0;
+}
+
+.navigation-bar .nav-toggle {
+  position: absolute;
+  top: 50%;
+  right: -70px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navigation-bar .nav-toggle img {
+  width: 75px;
+  height: 75px;
+}
+
+.navigation-bar .nav-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.nav-content .logo-container {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.nav-content .logo-container .nav-logo {
+  width: 160px;
+  flex-shrink: 0;
+  /* 크기 고정 */
+}
+
+.navigation-bar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px;
+}
+
+.navigation-bar nav ul li {
+  margin: 10px 0;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  /* padding 추가 */
+  width: 100%;
+  /* 전체 너비 사용 */
+}
+
+.navigation-bar nav ul li img.nav-icon {
+  margin-right: 10px;
+  /* 아이콘과 텍스트 사이의 간격 */
+  width: 22px;
+  /* 아이콘 크기 조정 */
+  height: 22px;
+  /* 아이콘 크기 조정 */
+}
+
+.navigation-bar nav ul li ul {
+  display: none;
+  padding-left: 35px;
+  /* 서브메뉴 항목 들여쓰기 */
+  padding-top: 5px;
+
+}
+
+.navigation-bar nav ul li ul.submenu {
+  display: none;
+  font-size: 16px;
+}
+
+.navigation-bar nav ul li ul.submenu.open {
+  display: block;
+}
+
+.navigation-bar nav ul li ul.submenu li {
+  margin: 5px 0;
+  width: calc(100% - 10px);
+  /* 전체 너비 사용, 패딩을 제외한 크기 */
+}
+
+.navigation-bar nav ul li ul.submenu li:hover {
+  background-color: #4d00cc;
+  /* 서브메뉴 항목에 호버 시 배경 색상 */
+  width: calc(100% - 10px);
+  /* 전체 너비 사용 */
+}
+
+/* Hover 효과 */
+.navigation-bar nav ul li:hover>.menu-item {
+  background-color: #4d00cc;
+  /* 메뉴 항목에 호버 시 배경 색상 */
+  width: calc(100% - 10px);
+  /* 전체 너비 사용, 패딩을 제외한 크기 */
+  padding: 7px;
+  /* 패딩 추가 */
+}
+
+/* footer 스타일 설정 */
+.footer {
+  /* position: fixed; */
+  bottom: 0;
+  background-color: #020715;
+  color: #a0a0a0;
+  padding: 20px;
+  width: 100%;
+  /* display: flex; */
+  flex-wrap: wrap;
+  justify-content: center;
+  /* 푸터 내용을 중앙에 정렬 */
+  box-sizing: border-box;
+  margin-top: auto;
+  /* 푸터를 페이지 하단으로 밀기 */
+  font-size: 14px;
+  /* z-index: 1; */
+}
+
+.footer-content {
+  display: flex;
+  align-items: top;
+  /* 수직 중앙 정렬 */
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  /* 푸터 내용을 중앙에 정렬 */
+}
+
+.footer-text {
+  flex: 1;
+  text-align: left;
+  /* 텍스트를 왼쪽 정렬 */
+}
+
+.footer-logo {
+  flex-shrink: 0;
+  text-align: right;
+  /* 로고를 오른쪽 정렬 */
+}
+
+.footer-logo img {
+  height: 60px;
+  /* 로고 크기 조정 */
+  opacity: 0.4;
+  /* 회색 효과 */
+}
+
+.ChatBot {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 100;
+  background: transparent;
+  padding: 12px;
+}
+
+.ChatBot .ChatBot-image {
+  width: 100px;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.ChatBot-modal-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.ChatBot-modal-content {
+  position: relative;
+  background: #F8F3ED;
+  border-radius: .4em;
+  width: 80%;
+  /* 너비를 고정된 크기로 설정 */
+  height: 80%;
+  /* 높이도 고정된 크기로 설정 */
+  max-height: 80%;
+  /* 화면 크기에 맞게 최대 높이 설정 */
+  padding: 15px;
+  overflow: hidden;
+  /* 콘텐츠 오버플로우 숨김 */
+}
+
+.ChatBot-modal-text {
+  width: 100%;
+  height: 93%;
+  border-radius: 20px;
+  background-color: transparent;
+  overflow-y: auto;
+  display: flex;
+  padding-right: 5px;
+  flex-direction: column-reverse;
+  /* 채팅이 아래에서 위로 이동 */
+}
+
+/* 스크롤바 스타일 */
+.ChatBot-modal-text::-webkit-scrollbar {
+  width: 12px;
+  /* 스크롤바의 너비 */
+}
+
+.ChatBot-modal-text::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 10px;
+}
+
+.ChatBot-modal-text::-webkit-scrollbar-thumb:hover {
+  background-color: #bbaa8a;
+  /* 마우스 오버 시 핸들 색상 */
+}
+
+.ChatBot-modal-text::-webkit-scrollbar-track {
+  background-color: lightgrey;
+  border-radius: 10px;
+}
+
+.ChatBot-message-container {
+  display: flex;
+  margin: 10px 0;
+  /* 위아래 간격 추가 */
+  width: 100%;
+  /* 부모 요소의 너비를 채움 */
+}
+
+.ChatBot-message-container.user {
+  justify-content: flex-end;
+  /* 사용자 메시지를 오른쪽으로 정렬 */
+}
+
+.ChatBot-message-container.bot {
+  justify-content: flex-start;
+  /* 챗봇 메시지를 왼쪽으로 정렬 */
+}
+
+.ChatBot-question {
+  background-color: #6200ff18;
+  border-bottom: 3px solid #00000029;
+  border-right: 2px solid #00000029;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  max-width: 60%;
+  max-height: 50px;
+  padding: 10px;
+  border-radius: 10px 0px 10px 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: right;
+}
+
+.ChatBot-answer {
+  background-color: #FFF;
+  border-bottom: 3px solid #00000029;
+  border-right: 2px solid #00000029;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 10px 10px 10px 0px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.ChatBot-question button {
+  display: none;
+}
+
+.ChatBot-modal-input {
+  width: 87%;
+  height: 28px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  border-radius: 15px;
+  border: 0px solid #6100ff;
+  background-color: #FFF;
+  padding: 5px;
+  padding-left: 20px;
+  border-bottom: 2px solid #00000029;
+}
+
+.ChatBot-modal-input:focus {
+  outline: 2px solid #6100ff;
+}
+
+.ChatBot-modal-send-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 8%;
+  height: 40px;
+  border-radius: 15px;
+  background-color: #FFF;
+  border: 0px solid #6100ff;
+  color: #6100ff;
+  font-weight: bold;
+  font-size: 15px;
+  border-bottom: 2px solid #00000029;
+}
+
+.ChatBot-modal-send-button:hover {
+  border: 2px solid #6100ff;
+}
