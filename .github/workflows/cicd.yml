@@ -19,11 +19,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
-    - name: Install Docker Compose
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y docker-compose
-
+    # Install dependencies (apt-get install 명령어 제거)
     - name: Build Docker images locally
       run: |
         docker-compose -f docker-compose.yml build
@@ -49,17 +45,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install Docker Compose
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y docker-compose
-
     - name: Build and run services
       run: docker-compose up -d
 
+    - name: Check running services
+      run: docker-compose ps
+
     - name: Run tests
       run: |
-        # 테스트 스크립트 추가
+        # 테스트 스크립트 실행
         docker exec aicc_server npm run test
 
   deploy:
@@ -70,15 +64,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install Docker Compose
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y docker-compose
-
+    # 배포 명령어 실행
     - name: Deploy to AWS EC2 server
       run: |
         ssh -o StrictHostKeyChecking=no -i ${{ secrets.AWS_EC2_KEY }} ${{ secrets.AWS_EC2_USER }}@${{ secrets.AWS_EC2_HOST }} "\
-          cd /path/to/project && \
+          cd /actual/path/to/project && \
           git pull && \
           docker-compose down && \
           docker-compose up -d"
