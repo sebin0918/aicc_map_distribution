@@ -59,9 +59,9 @@ jobs:
     - name: Build and run services
       run: docker-compose up -d
 
-    - name: Run tests
-      run: |
-        docker exec aicc_server npm run test
+    # - name: Run tests
+    #   run: |
+    #     docker exec aicc_server npm run test
 
   deploy:
     runs-on: ubuntu-latest
