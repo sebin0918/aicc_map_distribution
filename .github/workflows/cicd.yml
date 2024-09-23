@@ -77,10 +77,11 @@ jobs:
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version  # Docker Compose 버전 확인
 
-    - name: Deploy to AWS EC2 server
+    - name: SSH into EC2
       run: |
-        ssh -o StrictHostKeyChecking=no -i ${{ secrets.AWS_EC2_KEY }} ${{ secrets.AWS_EC2_USER }}@${{ secrets.AWS_EC2_HOST }} "\
-          cd /path/to/project && \
-          git pull && \
-          docker-compose down && \
-          docker-compose up -d"
+        echo "${{ secrets.SSH_PASSWORD }}" | sshpass ssh -o StrictHostKeyChecking=no -i ${{ secrets.AWS_EC2_KEY }} ${{ secrets.AWS_EC2_USER }}@${{ secrets.AWS_EC2_HOST }} "\
+        cd /path/to/project && \
+        git pull && \
+        docker-compose down && \
+        docker-compose up -d"
+
