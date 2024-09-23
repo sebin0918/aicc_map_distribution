@@ -35,7 +35,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2g
+          memory: 4g
 
   client:
     build: ./client
