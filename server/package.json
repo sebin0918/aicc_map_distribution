@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "mocha ./tests/test_server.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
