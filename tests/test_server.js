@@ -3,7 +3,7 @@
 // 필요한 라이브러리 로드
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../server'); // 실제 서버 파일 경로를 설정해 주세요
+const server = require('../server/app.js'); // 실제 서버 파일 경로를 설정해 주세요
 const should = chai.should();
 
 chai.use(chaiHttp);
@@ -22,10 +22,10 @@ describe('Server', () => {
   // 로그인 테스트 예시 (POST 요청)
   it('로그인이 성공해야 합니다', (done) => {
     chai.request(server)
-      .post('/api/auth/login')  // 실제 로그인 경로로 변경
+      .post('http://localhost:5000/api/auth/login')  // 실제 로그인 경로로 변경
       .send({
-        user_email: 'test@example.com',  // 실제 테스트 사용자 정보로 변경
-        user_password: 'password123'
+        user_email: 'root@root.com',  // 실제 테스트 사용자 정보로 변경
+        user_password: '1'
       })
       .end((err, res) => {
         res.should.have.status(200); // 로그인 성공 시 200 상태 코드
