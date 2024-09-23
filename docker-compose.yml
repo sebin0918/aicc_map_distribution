@@ -32,10 +32,7 @@ services:
       - mariadb
     networks:
       - aicc_network
-    deploy:
-      resources:
-        limits:
-          memory: 4g
+    mem_limit: 4g
 
   client:
     build: ./client
