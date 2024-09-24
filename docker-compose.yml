@@ -1,4 +1,4 @@
-version: '3'
+# version: '3'
 services:
   mariadb:
     build: ./map_database  # MariaDB Dockerfile을 사용하여 이미지를 빌드
@@ -9,7 +9,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./map_database:/var/lib/mysql  # 데이터베이스 파일 저장소
+      # - ./map_database:/var/lib/mysql  # 데이터베이스 파일 저장소
+      - mariadb_data:/var/lib/mysql  # 로컬 폴더가 아닌 Docker 볼륨 사용
       - ./map_database:/docker-entrypoint-initdb.d  # 초기화 스크립트 복사
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # 권한 부여 스크립트 추가
     networks:
@@ -32,7 +33,7 @@ services:
       - mariadb
     networks:
       - aicc_network
-    mem_limit: 4g
+    mem_limit: 2g
 
   client:
     build: ./client
