@@ -23,7 +23,7 @@ const AppRoutes = () => {
   const [userInfo, setUserInfo] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
-
+  console.log(process.env.REACT_APP_API_URL);  // 올바르게 값이 출력되는지 확인
   useEffect(() => {
     checkSession();
   }, []);  // 빈 배열을 사용하여 첫 번째 렌더링 시 한 번만 실행
@@ -73,7 +73,7 @@ const AppRoutes = () => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/auth/login`,
+        `http://43.201.52.123:5000/api/auth/login`,
         { user_email: email, user_password: password },
         { withCredentials: true }
       );

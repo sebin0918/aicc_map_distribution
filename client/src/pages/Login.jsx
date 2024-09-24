@@ -12,7 +12,7 @@ const Login = ({ onLogin, initialErrorMessage }) => {  // 매개변수 이름 �
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState(initialErrorMessage || '');  // 상태 이름 변경 후 초기값 설정
     const navigate = useNavigate(); 
-    console.log(process.env.REACT_APP_API_URL);  // 올바르게 값이 출력되는지 확인
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation(); 
