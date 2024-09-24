@@ -15,6 +15,11 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # 권한 부여 스크립트 추가
     networks:
       - aicc_network
+    healthcheck: # 컨테이너 준비 상태 확인 (MariaDB가 준비되면 컨테이너가 준비된 상태로 간주)
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
   server:
     build: ./server
@@ -30,15 +35,11 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy  # MariaDB 컨테이너가 준비된 상태일 때만 서버 컨테이너 실행
     networks:
       - aicc_network
     mem_limit: 2g
-    command: >
-      sh -c "
-      until nc -z mariadb 3306; do
-      echo 'Waiting for MariaDB to be ready...'; sleep 2; done;
-      node join_security/hashExistingPasswords.js && node app.js"
 
   client:
     build: ./client
