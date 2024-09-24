@@ -22,8 +22,9 @@ const Login = ({ onLogin, initialErrorMessage }) => {  // 매개변수 이름 �
         console.log('Submitting:', { email: trimmedEmail, password: trimmedPassword });
 
         try {
+            console.log(process.env.REACT_APP_API_URL);  // 올바르게 값이 출력되는지 확인
             // 서버에 로그인 요청 보내기
-            const response = await axios.post(`http://${process.env.REACT_APP_API_URL}/api/auth/login`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
                 user_email: trimmedEmail,
                 user_password: trimmedPassword
             }, {
