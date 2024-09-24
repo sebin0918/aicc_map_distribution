@@ -12,7 +12,7 @@ function NewsTalk() {
   // 서버로부터 메시지를 받아오는 함수
   const fetchMessages = async () => {
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/messages', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/messages`, {
         credentials: 'include', // 세션 쿠키 포함
       });
       const data = await response.json();
@@ -44,7 +44,7 @@ function NewsTalk() {
       const newMessage = { text: message, time: currentTime };
 
       try {
-        const response = await fetch('${process.env.REACT_APP_API_URL}/api/messages', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/messages`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

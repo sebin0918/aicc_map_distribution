@@ -28,7 +28,7 @@ const SignUp = () => {
 
     if (checkEmail.length > 0 && checkEmail.includes('@')) {
       try {
-        const checkRes = await fetch('${process.env.REACT_APP_API_URL}/api/register/useremail', {
+        const checkRes = await fetch(`${process.env.REACT_APP_API_URL}/api/register/useremail`, {
           method: 'POST',
           headers: {'content-type': 'application/json; charset=UTF-8'},
           credentials: 'include',
@@ -62,7 +62,7 @@ const SignUp = () => {
     console.log(checkEmail);
 
     try {
-      const request = await fetch('${process.env.REACT_APP_API_URL}/api/register/usercheckcode', {
+      const request = await fetch(`${process.env.REACT_APP_API_URL}/api/register/usercheckcode`, {
         method: 'POST',
         headers: {'content-type': 'application/json; charset=UTF-8'},
         credentials: 'include',
@@ -90,7 +90,7 @@ const SignUp = () => {
     console.log(confirmCode);
     
     try {
-      const request = await fetch('${process.env.REACT_APP_API_URL}/api/register/userconfirmcode', {
+      const request = await fetch(`${process.env.REACT_APP_API_URL}/api/register/userconfirmcode`, {
         method: 'POST',
         headers: {'content-type': 'application/json; charset=UTF-8'},
         credentials: 'include', // 세션 쿠키 전송 설정 추가 
@@ -130,7 +130,7 @@ const SignUp = () => {
     console.log('FormData확인:', data);
     
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/register/userdata', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/register/userdata`, {
         method: 'POST',
         headers: {'content-type': 'application/json; charset=UTF-8'},
         credentials: 'include', 

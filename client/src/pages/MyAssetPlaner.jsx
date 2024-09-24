@@ -113,7 +113,7 @@ const MyAssetPlaner = () => {
 
   const fetchTotalAssetData = async () => {
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/my-asset-planer/total-asset', { credentials: 'include' });
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/total-asset`, { credentials: 'include' });
       const data = await response.json();
       if (response.ok) {
         console.log('Fetched total asset data:', data);
@@ -130,7 +130,7 @@ const MyAssetPlaner = () => {
 
   const fetchCurrentMonthReceived = async () => {
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/my-asset-planer/current-month-received', { credentials: 'include' });
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/current-month-received`, { credentials: 'include' });
       const data = await response.json();
       if (response.ok) {
         console.log('Fetched current month received:', data);
@@ -160,7 +160,7 @@ const MyAssetPlaner = () => {
 
   const fetchMonthlyExpenditures = async () => {
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/my-asset-planer/monthly-expenditures', { credentials: 'include' });
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/monthly-expenditures`, { credentials: 'include' });
       const data = await response.json();
       if (response.ok) {
         console.log('Fetched monthly expenditures:', data);
@@ -192,7 +192,7 @@ const MyAssetPlaner = () => {
   useEffect(() => {
     const checkBankAccount = async () => {
       try {
-        const response = await fetch('${process.env.REACT_APP_API_URL}/api/my-asset-planer/check-bank-account', { credentials: 'include' });
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/check-bank-account`, { credentials: 'include' });
         const data = await response.json();
         setHasBankAccount(data.hasBankAccount);
         if (!data.hasBankAccount) {
@@ -208,23 +208,23 @@ const MyAssetPlaner = () => {
 
   useEffect(() => {
     if (hasBankAccount === true) {
-      fetchData('${process.env.REACT_APP_API_URL}/api/my-asset-planer/deposit', (data) => setDeposit(parseFloat(data.userDeposit) || 0));
-      fetchData('${process.env.REACT_APP_API_URL}/api/my-asset-planer/installmentsaving', (data) => setInstallmentSaving(parseFloat(data.userInstallmentSaving) || 0));
-      fetchData('${process.env.REACT_APP_API_URL}/api/my-asset-planer/loan', (data) => setUserLoan(parseFloat(data.userLoan) || 0));
-      fetchData('${process.env.REACT_APP_API_URL}/api/my-asset-planer/stock', (data) => {
+      fetchData(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/deposit`, (data) => setDeposit(parseFloat(data.userDeposit) || 0));
+      fetchData(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/installmentsaving`, (data) => setInstallmentSaving(parseFloat(data.userInstallmentSaving) || 0));
+      fetchData(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/loan`, (data) => setUserLoan(parseFloat(data.userLoan) || 0));
+      fetchData(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/stock`, (data) => {
         setSamsungStock(data.samsung || {});
         setAppleStock(data.apple || {});
         setCoin(data.coin || {});
         setTotal(data.total || {});
       });
-      fetchData('${process.env.REACT_APP_API_URL}/api/my-asset-planer/target', (data) => setCurrentBudget(data.targetBudget ? data.targetBudget.toLocaleString() : "0"));
+      fetchData(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/target`, (data) => setCurrentBudget(data.targetBudget ? data.targetBudget.toLocaleString() : "0"));
       fetchTotalAssetData();
     }
   }, [hasBankAccount]);  
 
   const updateTargetBudget = async (newBudget) => {
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/my-asset-planer/target', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/target`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -330,7 +330,7 @@ const MyAssetPlaner = () => {
     }
 
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/my-asset-planer/deposit', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/deposit`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -361,7 +361,7 @@ const MyAssetPlaner = () => {
     }
 
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/my-asset-planer/loan', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/loan`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -423,7 +423,7 @@ const MyAssetPlaner = () => {
       // 기존 투자 내역을 서버로부터 가져오는 함수
       const fetchInvestments = async () => {
         try {
-          const response = await fetch("${process.env.REACT_APP_API_URL}/api/my-asset-planer/get-investments", {
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/get-investments`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -477,7 +477,7 @@ const MyAssetPlaner = () => {
     
       // 서버에 데이터 전송
       try {
-        const response = await fetch("${process.env.REACT_APP_API_URL}/api/my-asset-planer/save-investments", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/save-investments`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -490,7 +490,7 @@ const MyAssetPlaner = () => {
         if (response.ok) {
           alert("투자 정보가 성공적으로 저장되었습니다!");
           onClose(); // 모달 닫기
-          fetchData('${process.env.REACT_APP_API_URL}/api/my-asset-planer/stock', (data) => {
+          fetchData(`${process.env.REACT_APP_API_URL}/api/my-asset-planer/stock`, (data) => {
             setSamsungStock(data.samsung || {});
             setAppleStock(data.apple || {});
             setCoin(data.coin || {});

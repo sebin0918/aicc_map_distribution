@@ -54,7 +54,7 @@ function MyPage() {
       console.log("Requesting user profile...");  // 요청 시작 확인
 
       try {
-        const request = await fetch('${process.env.REACT_APP_API_URL}/api/auth/profile', {  // /profile 엔드포인트로 GET 요청
+        const request = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/profile`, {  // /profile 엔드포인트로 GET 요청
           method: 'GET',
           credentials: 'include',  // 세션 쿠키 포함
         });
@@ -77,7 +77,7 @@ function MyPage() {
 
     const getUserData = async (email) => {
       try {
-        const request = await fetch('${process.env.REACT_APP_API_URL}/api/mypage/defaultdata', {
+        const request = await fetch(`${process.env.REACT_APP_API_URL}/api/mypage/defaultdata`, {
           method: 'POST',
           headers: { 'content-type': 'application/json; charset=UTF-8' },
           body: JSON.stringify({ user_email: email }),  // 세션에서 가져온 이메일 사용
@@ -123,7 +123,7 @@ function MyPage() {
     alert(JSON.stringify(formData, null, 2));
 
     try {
-      const request = await fetch('${process.env.REACT_APP_API_URL}/api/mypage/datasubmit', {
+      const request = await fetch(`${process.env.REACT_APP_API_URL}/api/mypage/datasubmit`, {
         method: 'PUT',
         headers: { 'content-type': 'application/json; charset=UTF-8' },
         body: JSON.stringify(formData),
@@ -146,7 +146,7 @@ function MyPage() {
 
   const handleSecessionConfirm = async () => {
     try {
-      const request = await fetch('${process.env.REACT_APP_API_URL}/api/mypage/', {
+      const request = await fetch(`${process.env.REACT_APP_API_URL}/api/mypage/`, {
         method: 'DELETE',
         credentials: 'include',  // 쿠키와 세션정보를 포함하여 요청
       });

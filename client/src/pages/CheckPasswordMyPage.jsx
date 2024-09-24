@@ -14,7 +14,7 @@ function CheckPasswordMyPage() {
     console.log(writePassword);
 
     try {
-      const request = await fetch('${process.env.REACT_APP_API_URL}/api/myPagePassword/checkpassword', {
+      const request = await fetch(`${process.env.REACT_APP_API_URL}/api/myPagePassword/checkpassword`, {
         method: 'POST',
         headers: {'content-type': 'application/json; charset=UTF-8'},
         body: JSON.stringify( {userpassword: writePassword} ),

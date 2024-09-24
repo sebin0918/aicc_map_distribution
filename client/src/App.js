@@ -73,7 +73,7 @@ const AppRoutes = () => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(
-        `http://43.201.52.123:5000/api/auth/login`,
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
         { user_email: email, user_password: password },
         { withCredentials: true }
       );
@@ -95,7 +95,7 @@ const AppRoutes = () => {
 
   const logout = async () => {
     try {
-      const response = await axios.post('${process.env.REACT_APP_API_URL}/api/auth/logout', {}, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/logout`, {}, {
         withCredentials: true,
       });
 

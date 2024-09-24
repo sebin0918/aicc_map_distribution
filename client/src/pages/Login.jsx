@@ -20,12 +20,11 @@ const Login = ({ onLogin, initialErrorMessage }) => {  // 매개변수 이름 �
         const trimmedEmail = email.trim();
         const trimmedPassword = password.trim();
         console.log('Submitting:', { email: trimmedEmail, password: trimmedPassword });
-        console.log("여기는?"+process.env.REACT_APP_API_URL);  // 올바르게 값이 출력되는지 확인
 
         try {
             
             // 서버에 로그인 요청 보내기
-            const response = await axios.post(`http://43.201.52.123:5000/api/auth/login`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
                 user_email: trimmedEmail,
                 user_password: trimmedPassword
             }, {

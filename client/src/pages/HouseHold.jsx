@@ -21,7 +21,7 @@ const HouseHold = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch('${process.env.REACT_APP_API_URL}/api/household/HouseHold');    // 백엔드 API 호출
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/household/HouseHold`);    // 백엔드 API 호출
         const data = await response.json();
         
         // 디버깅용 콘솔 패치데이터 확인
