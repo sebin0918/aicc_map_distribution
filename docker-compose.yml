@@ -35,17 +35,10 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      mariadb:
-        condition: service_healthy  # MariaDB 컨테이너가 준비된 상태일 때만 서버 컨테이너 실행
+      - mariadb
     networks:
       - aicc_network
     mem_limit: 2g
-    healthcheck:
-      test: curl --fail http://localhost:5000 || exit 1
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
 
   client:
     build: ./client
