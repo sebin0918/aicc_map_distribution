@@ -40,6 +40,12 @@ services:
     networks:
       - aicc_network
     mem_limit: 2g
+    healthcheck:
+      test: curl --fail http://localhost:5000 || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   client:
     build: ./client
