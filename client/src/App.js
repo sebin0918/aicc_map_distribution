@@ -30,7 +30,7 @@ const AppRoutes = () => {
 
   const checkSession = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/auth/check-session', {
+      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/auth/check-session', {
         withCredentials: true,
       });
   
@@ -52,7 +52,7 @@ const AppRoutes = () => {
 
   const fetchUserInfo = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/auth/profile', {
+      const response = await axios.get('${process.env.REACT_APP_API_URL}/api/auth/profile', {
         withCredentials: true,
       });
 
@@ -73,7 +73,7 @@ const AppRoutes = () => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/login',
+        '${process.env.REACT_APP_API_URL}/api/auth/login',
         { user_email: email, user_password: password },
         { withCredentials: true }
       );
@@ -95,7 +95,7 @@ const AppRoutes = () => {
 
   const logout = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/logout', {}, {
+      const response = await axios.post('${process.env.REACT_APP_API_URL}/api/auth/logout', {}, {
         withCredentials: true,
       });
 

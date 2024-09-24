@@ -15,7 +15,7 @@ const Admin = () => {
     // 데이터 가져오는 함수 정의
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/Admin'); // 백엔드의 엔드포인트 호출
+        const response = await axios.get('${process.env.REACT_APP_API_URL}/api/admin/Admin'); // 백엔드의 엔드포인트 호출
         setUsers(response.data.data); // 서버로부터 데이터를 받아와 state에 저장
         setLoading(false); // 데이터 로딩 완료
       } catch (error) {

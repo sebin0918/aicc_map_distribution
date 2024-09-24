@@ -10,7 +10,7 @@ const ProtectedRoute = ({ children }) => {
     // 서버로부터 세션 유효성 확인
     const checkSession = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/auth/check-session', {
+        const response = await axios.get('${process.env.REACT_APP_API_URL}/api/auth/check-session', {
           withCredentials: true, // 세션 쿠키를 포함하여 서버로 전송
         });
 

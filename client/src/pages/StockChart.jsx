@@ -75,7 +75,7 @@ function StockChart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/stock-chart/stock');
+        const response = await fetch('${process.env.REACT_APP_API_URL}/api/stock-chart/stock');
         const data = await response.json();
         if (response.ok && data.merged) {
           setStockData(data.merged);

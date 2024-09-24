@@ -85,7 +85,7 @@ function StockPrediction() {
       console.log("주식데이터fetch시작확인");
 
       try {
-        const request = await fetch('http://localhost:5000/api/stock-predict/stock-predict', {
+        const request = await fetch('${process.env.REACT_APP_API_URL}/api/stock-predict/stock-predict', {
           method: 'GET',
         });
         console.log("주식응답데이터:", request);  // 응답 수신 확인
