@@ -20,6 +20,7 @@ const Login = ({ onLogin, initialErrorMessage }) => {  // 매개변수 이름 �
         const trimmedEmail = email.trim();
         const trimmedPassword = password.trim();
         console.log('Submitting:', { email: trimmedEmail, password: trimmedPassword });
+        console.log("여기는?"+process.env.REACT_APP_API_URL);  // 올바르게 값이 출력되는지 확인
 
         try {
             
