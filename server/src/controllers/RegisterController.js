@@ -133,7 +133,7 @@ const postUserRegister = async (req, res) => {
       console.log('회원가입 적용쿼리:', uk_result, ui_result, uf_result);
       res.status(200).json({ message: 'User registered successfully!', id: uk_result.insertId.toString() });
     } catch (err) {
-        if (connenction) { await connection.rollback()};
+        if (connection) { await connection.rollback()};
         console.error('회원가입 쿼리실행 에러:', err);
         res.status(500).send('서버 에러');
     } finally {
