@@ -6,6 +6,9 @@ const updatePasswords = async () => {
     let conn;
     try {
         conn = await pool.getConnection();
+
+        // 데이터베이스 명시적 선택 (혹시몰라서 추가해봄 직접적으로)
+        await conn.query('USE AICC_DB_MAP');
         
         // 데이터베이스에서 모든 사용자의 ID와 비밀번호를 가져옴
         const users = await conn.query('SELECT user_id, uk_email, uk_password FROM tb_user_key');
