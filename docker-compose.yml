@@ -15,11 +15,11 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # 권한 부여 스크립트 추가
     networks:
       - aicc_network
-    healthcheck: # 컨테이너 준비 상태 확인 (MariaDB가 준비되면 컨테이너가 준비된 상태로 간주)
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+    # healthcheck: # 컨테이너 준비 상태 확인 (MariaDB가 준비되면 컨테이너가 준비된 상태로 간주)
+    #   test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 3
 
   server:
     build: ./server
