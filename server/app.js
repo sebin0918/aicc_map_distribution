@@ -43,7 +43,7 @@ redisClient.on('error', (err) => {
 
 // CORS 설정
 app.use(cors({
-  origin: 'http://43.201.52.123:3000',  // 클라이언트의 도메인으로 설정
+  origin: 'http://52.78.220.234:3000',  // 클라이언트의 도메인으로 설정
   credentials: true,  // 쿠키를 클라이언트로 전달할 수 있도록 설정
 }));
 
